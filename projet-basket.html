@@ -1,0 +1,464 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Projet Basket — Jeremie Ngowet</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    /* ── STYLES SPÉCIFIQUES PAGE PROJET ── */
+    .project-page-hero {
+      padding: 100px 0 60px;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .back-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      font-size: 0.82rem;
+      font-weight: 500;
+      color: var(--text3);
+      text-decoration: none;
+      margin-bottom: 2rem;
+      transition: color 0.15s;
+    }
+
+    .back-link:hover { color: var(--accent); }
+
+    .project-hero-meta {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      margin-bottom: 1rem;
+    }
+
+    .project-hero-icon { font-size: 2rem; }
+
+    .project-hero-ref {
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 0.72rem;
+      color: var(--text3);
+      letter-spacing: 0.08em;
+    }
+
+    .project-hero-title {
+      font-size: clamp(1.8rem, 4vw, 3rem);
+      font-weight: 700;
+      letter-spacing: -0.03em;
+      line-height: 1.15;
+      margin-bottom: 1rem;
+    }
+
+    .project-hero-summary {
+      font-size: 1.05rem;
+      color: var(--text2);
+      line-height: 1.75;
+      max-width: 620px;
+      margin-bottom: 1.5rem;
+    }
+
+    /* ── GALERIE PHOTOS ── */
+    .photo-section { padding: 60px 0; border-bottom: 1px solid var(--border); }
+
+    .photo-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1rem;
+      margin-top: 2rem;
+    }
+
+    .photo-grid.grid-1 { grid-template-columns: 1fr; }
+    .photo-grid.grid-3 { grid-template-columns: repeat(3, 1fr); }
+
+    .photo-slot {
+      background: var(--surface2);
+      border: 2px dashed var(--border);
+      border-radius: 12px;
+      aspect-ratio: 16/9;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 0.6rem;
+      color: var(--text3);
+      font-size: 0.82rem;
+      text-align: center;
+      padding: 1.5rem;
+      transition: border-color 0.2s, background 0.2s;
+    }
+
+    .photo-slot:hover { border-color: var(--accent-bd); background: var(--accent-bg); }
+    .photo-slot-icon { font-size: 1.8rem; opacity: 0.5; }
+    .photo-slot-label { font-weight: 500; color: var(--text2); }
+    .photo-slot-hint { font-size: 0.72rem; color: var(--text3); }
+
+    .photo-img {
+      border-radius: 12px;
+      width: 100%;
+      aspect-ratio: 16/9;
+      object-fit: cover;
+      border: 1px solid var(--border);
+    }
+
+    /* ── CONTENU DÉTAILLÉ ── */
+    .detail-section { padding: 60px 0; border-bottom: 1px solid var(--border); }
+    .detail-section:last-of-type { border-bottom: none; }
+
+    .detail-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 3rem;
+      margin-top: 2rem;
+    }
+
+    .detail-block-title {
+      font-size: 0.72rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--text3);
+      margin-bottom: 1rem;
+    }
+
+    .detail-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 0.7rem;
+    }
+
+    .detail-list li {
+      font-size: 0.95rem;
+      color: var(--text2);
+      line-height: 1.6;
+      display: flex;
+      align-items: flex-start;
+      gap: 0.6rem;
+    }
+
+    .detail-list li::before {
+      content: '→';
+      color: var(--accent);
+      flex-shrink: 0;
+      font-weight: 600;
+    }
+
+    .detail-text {
+      font-size: 0.95rem;
+      color: var(--text2);
+      line-height: 1.8;
+    }
+
+    .detail-text p { margin-bottom: 0.9rem; }
+    .detail-text p:last-child { margin-bottom: 0; }
+    .detail-text strong { color: var(--text); font-weight: 600; }
+
+    /* ── COMPÉTENCES BADGES ── */
+    .competences-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 0.75rem;
+      margin-top: 2rem;
+    }
+
+    .competence-item {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 1rem 1.25rem;
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+    }
+
+    .competence-dot {
+      width: 8px; height: 8px;
+      background: var(--accent);
+      border-radius: 50%;
+      flex-shrink: 0;
+    }
+
+    .competence-label {
+      font-size: 0.88rem;
+      font-weight: 500;
+      color: var(--text2);
+    }
+
+    /* ── NAVIGATION ENTRE PROJETS ── */
+    .project-nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 2.5rem 0;
+      border-top: 1px solid var(--border);
+      gap: 1rem;
+    }
+
+    .project-nav-link {
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+      font-size: 0.88rem;
+      font-weight: 600;
+      color: var(--text2);
+      text-decoration: none;
+      padding: 0.65rem 1.2rem;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      transition: all 0.15s;
+    }
+
+    .project-nav-link:hover {
+      color: var(--accent);
+      border-color: var(--accent-bd);
+      background: var(--accent-bg);
+    }
+
+    .project-nav-center {
+      font-size: 0.78rem;
+      color: var(--text3);
+      font-family: 'IBM Plex Mono', monospace;
+    }
+
+    @media (max-width: 700px) {
+      .photo-grid, .photo-grid.grid-3 { grid-template-columns: 1fr; }
+      .detail-grid { grid-template-columns: 1fr; gap: 2rem; }
+      .competences-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav>
+    <div class="nav-inner">
+      <div class="nav-logo">Jeremie <span>Ngowet</span></div>
+      <div class="nav-links">
+        <a href="index.html#about">À propos</a>
+        <a href="index.html#skills">Compétences</a>
+        <a href="index.html#projects">Projets</a>
+        <a href="index.html#stages">Stages</a>
+        <a href="index.html#veille">Veille</a>
+        <a href="index.html#objectif">Objectif</a>
+        <span class="nav-pill">BTS SIO SLAM</span>
+      </div>
+    </div>
+  </nav>
+
+  <!-- HERO PROJET -->
+  <div class="page">
+    <div class="project-page-hero">
+      <a href="index.html#projects" class="back-link">← Retour aux projets</a>
+
+      <div class="project-hero-meta">
+        <span class="project-hero-icon">🏀</span>
+        <span class="project-hero-ref">PROJET 02</span>
+        <div class="tech-row">
+          <span class="tech-badge">Java</span>
+          <span class="tech-badge">SQL</span>
+          <span class="tech-badge">MVC</span>
+          <span class="tech-badge">POO</span>
+        </div>
+      </div>
+
+      <h1 class="project-hero-title">Gestion de<br/>Club de Basket</h1>
+
+      <p class="project-hero-summary">
+        Logiciel complet de gestion d'un club sportif couvrant les joueurs, équipes,
+        matchs, statistiques et adhésions, avec génération automatique de classements
+        et feuilles de match.
+      </p>
+    </div>
+  </div>
+
+  <!-- GALERIE PHOTOS -->
+  <div class="page">
+    <div class="photo-section">
+      <div class="section-eyebrow">Captures d'écran</div>
+      <h2 class="section-title">Aperçu de l'application</h2>
+      <p class="section-lead">
+        Ajoute ici tes captures d'écran en remplaçant les blocs ci-dessous par des balises
+        <code>&lt;img src="ton-image.png" class="photo-img" alt="..." /&gt;</code>
+      </p>
+
+      <div class="photo-grid">
+        <div class="photo-slot">
+          <div class="photo-slot-icon">🖼️</div>
+          <div class="photo-slot-label">Capture 1</div>
+          <div class="photo-slot-hint">Remplace par : &lt;img src="basket-1.png" class="photo-img"&gt;</div>
+        </div>
+        <div class="photo-slot">
+          <div class="photo-slot-icon">🖼️</div>
+          <div class="photo-slot-label">Capture 2</div>
+          <div class="photo-slot-hint">Remplace par : &lt;img src="basket-2.png" class="photo-img"&gt;</div>
+        </div>
+      </div>
+
+      <div class="photo-grid grid-3" style="margin-top: 1rem;">
+        <div class="photo-slot">
+          <div class="photo-slot-icon">🖼️</div>
+          <div class="photo-slot-label">Capture 3</div>
+          <div class="photo-slot-hint">ex. liste des joueurs</div>
+        </div>
+        <div class="photo-slot">
+          <div class="photo-slot-icon">🖼️</div>
+          <div class="photo-slot-label">Capture 4</div>
+          <div class="photo-slot-hint">ex. tableau des matchs</div>
+        </div>
+        <div class="photo-slot">
+          <div class="photo-slot-icon">🖼️</div>
+          <div class="photo-slot-label">Capture 5</div>
+          <div class="photo-slot-hint">ex. statistiques</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- PRÉSENTATION DU PROJET -->
+  <div class="page">
+    <div class="detail-section">
+      <div class="section-eyebrow">Contexte</div>
+      <h2 class="section-title">Présentation du projet</h2>
+
+      <div class="detail-grid">
+        <div>
+          <div class="detail-block-title">Description</div>
+          <div class="detail-text">
+            <p>
+              Ce projet a été réalisé dans le cadre du BTS SIO SLAM. Il s'agit d'un
+              logiciel de gestion complète d'un club de basket-ball, centralisant toutes
+              les informations : joueurs, équipes, matchs, statistiques et adhésions.
+            </p>
+            <p>
+              L'application automatise plusieurs tâches : génération des <strong>classements</strong>,
+              calcul des <strong>statistiques individuelles et collectives</strong>, et
+              production des feuilles de match.
+            </p>
+            <p>
+              <!-- Complète ici avec tes détails spécifiques : IDE utilisé, durée du projet,
+                   difficultés rencontrées, solutions apportées, etc. -->
+              Tu peux compléter cette section avec des précisions sur les choix
+              d'architecture, les difficultés rencontrées et les solutions mises en place.
+            </p>
+          </div>
+        </div>
+        <div>
+          <div class="detail-block-title">Objectifs atteints</div>
+          <ul class="detail-list">
+            <li>Centralisation de toutes les informations du club</li>
+            <li>Gestion administrative et sportive complète</li>
+            <li>Automatisation des classements et statistiques</li>
+            <li>Génération des feuilles de match</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- RÉALISATIONS TECHNIQUES -->
+  <div class="page">
+    <div class="detail-section">
+      <div class="section-eyebrow">Technique</div>
+      <h2 class="section-title">Réalisations techniques</h2>
+
+      <div class="detail-grid">
+        <div>
+          <div class="detail-block-title">Base de données</div>
+          <ul class="detail-list">
+            <li>Conception d'une BDD relationnelle complète</li>
+            <li>Tables : joueurs, équipes, matchs, scores, adhésions</li>
+            <li>Relations complexes joueur → équipe, match → score</li>
+            <li>Requêtes SQL avec jointures et agrégations</li>
+          </ul>
+        </div>
+        <div>
+          <div class="detail-block-title">Application Java</div>
+          <ul class="detail-list">
+            <li>Architecture MVC rigoureuse</li>
+            <li>Interfaces dédiées : joueurs, équipes, matchs, stats</li>
+            <li>Génération automatique de statistiques</li>
+            <li>Tests, débogage et optimisation des performances</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- COMPÉTENCES MOBILISÉES -->
+  <div class="page">
+    <div class="detail-section">
+      <div class="section-eyebrow">Bilan</div>
+      <h2 class="section-title">Compétences mobilisées</h2>
+
+      <div class="competences-grid">
+        <div class="competence-item">
+          <div class="competence-dot"></div>
+          <div class="competence-label">Architecture MVC</div>
+        </div>
+        <div class="competence-item">
+          <div class="competence-dot"></div>
+          <div class="competence-label">Java orienté objet</div>
+        </div>
+        <div class="competence-item">
+          <div class="competence-dot"></div>
+          <div class="competence-label">SQL : CRUD, jointures, agrégations</div>
+        </div>
+        <div class="competence-item">
+          <div class="competence-dot"></div>
+          <div class="competence-label">Conception orientée métier</div>
+        </div>
+        <div class="competence-item">
+          <div class="competence-dot"></div>
+          <div class="competence-label">Tests et débogage</div>
+        </div>
+        <div class="competence-item">
+          <div class="competence-dot"></div>
+          <div class="competence-label">Optimisation des performances</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- NAVIGATION ENTRE PROJETS -->
+  <div class="page">
+    <div class="project-nav">
+      <a href="projet-resa.html" class="project-nav-link">← Projet précédent</a>
+      <span class="project-nav-center">02 / 02</span>
+      <a href="index.html#projects" class="project-nav-link">Retour aux projets →</a>
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-inner">
+      <div class="footer-id">
+        <div class="footer-name">Jeremie Ngowet</div>
+        <div class="footer-sub">BTS SIO SLAM · Lycée Parc de Vilgénis</div>
+      </div>
+      <div class="footer-copy">© 2025 — Tous droits réservés</div>
+      <div class="footer-nav">
+        <a href="index.html#about">À propos</a>
+        <a href="index.html#projects">Projets</a>
+        <a href="index.html#stages">Stages</a>
+        <a href="index.html#veille">Veille</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    const els = document.querySelectorAll('.reveal');
+    const obs = new IntersectionObserver(entries => {
+      entries.forEach((e, i) => {
+        if (e.isIntersecting) {
+          setTimeout(() => e.target.classList.add('visible'), i * 70);
+          obs.unobserve(e.target);
+        }
+      });
+    }, { threshold: 0.08 });
+    els.forEach(el => obs.observe(el));
+  </script>
+
+</body>
+</html>
