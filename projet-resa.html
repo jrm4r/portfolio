@@ -255,21 +255,22 @@
 
       <div class="project-hero-meta">
         <span class="project-hero-icon">🎫</span>
-        <span class="project-hero-ref">PROJET 01</span>
+        <span class="project-hero-ref">PROJET 01 · 03/09/2025 → 07/01/2026</span>
         <div class="tech-row">
-          <span class="tech-badge">Java</span>
           <span class="tech-badge">PHP</span>
+          <span class="tech-badge">MySQL</span>
           <span class="tech-badge">SQL</span>
           <span class="tech-badge">HTML/CSS</span>
+          <span class="tech-badge">XAMPP</span>
         </div>
       </div>
 
-      <h1 class="project-hero-title">Projet RESA<br/>Application de réservation</h1>
+      <h1 class="project-hero-title">Projet RESA_VVA<br/>Réservation d'hébergements</h1>
 
       <p class="project-hero-summary">
-        Application permettant la gestion complète de réservations de ressources :
-        créneaux, conflits de disponibilité, droits utilisateurs et suivi intégral
-        des réservations (création, modification, annulation).
+        Application web de réservation d'hébergements de vacances (PHP / MySQL) :
+        gestion des hébergements, des réservations, des rôles utilisateurs et
+        interface d'administration complète.
       </p>
     </div>
   </div>
@@ -280,40 +281,17 @@
       <div class="section-eyebrow">Captures d'écran</div>
       <h2 class="section-title">Aperçu de l'application</h2>
       <p class="section-lead">
-        Ajoute ici tes captures d'écran en remplaçant les blocs ci-dessous par des balises
-        <code>&lt;img src="ton-image.png" class="photo-img" alt="..." /&gt;</code>
+        Captures illustrant l'interface de connexion, le tableau de bord
+        administrateur et la liste des hébergements.
       </p>
 
-      <!-- Remplace ces .photo-slot par de vraies <img> quand tu as tes captures -->
       <div class="photo-grid">
-        <div class="photo-slot">
-          <div class="photo-slot-icon">🖼️</div>
-          <div class="photo-slot-label"><img src="images/page de conn.png" class="photo-img"></div>
-          <div class="photo-slot-hint"></div>
-        </div>
-        <div class="photo-slot">
-          <div class="photo-slot-icon">🖼️</div>
-          <div class="photo-slot-label">Capture 2</div>
-          <div class="photo-slot-hint"><img src="images/page index.png" class="photo-img"></div>
-        </div>
+        <img src="images/resa1.png" class="photo-img" alt="Page de connexion RESA" />
+        <img src="images/resa2.png" class="photo-img" alt="Tableau de bord RESA" />
       </div>
 
-      <div class="photo-grid grid-3" style="margin-top: 1rem;">
-        <div class="photo-slot">
-          <div class="photo-slot-icon">🖼️</div>
-          <div class="photo-slot-label">Capture 3</div>
-          <div class="photo-slot-hint"><img src="images/list heb.png" class="photo-img"></div>
-        </div>
-        <div class="photo-slot">
-          <div class="photo-slot-icon">🖼️</div>
-          <div class="photo-slot-label">Capture 4</div>
-          <div class="photo-slot-hint">ex. calendrier des créneaux</div>
-        </div>
-        <div class="photo-slot">
-          <div class="photo-slot-icon">🖼️</div>
-          <div class="photo-slot-label">Capture 5</div>
-          <div class="photo-slot-hint">ex. gestion des utilisateurs</div>
-        </div>
+      <div class="photo-grid grid-1" style="margin-top: 1rem;">
+        <img src="images/resa3.png" class="photo-img" alt="Liste des hébergements" />
       </div>
     </div>
   </div>
@@ -329,30 +307,31 @@
           <div class="detail-block-title">Description</div>
           <div class="detail-text">
             <p>
-              Le projet RESA a été réalisé dans le cadre du BTS SIO SLAM. Il s'agit
-              d'une application de gestion de réservations permettant aux utilisateurs
-              de réserver des ressources (salles, équipements…) via une interface simple
-              et intuitive.
+              Le projet RESA est une application web de réservation d'hébergements de
+              vacances, développée en <strong>PHP / MySQL</strong> et hébergée sous
+              XAMPP. Elle permet aux clients de consulter les hébergements disponibles
+              et d'effectuer des réservations, tandis que les administrateurs peuvent
+              gérer l'intégralité du parc locatif.
             </p>
             <p>
-              L'application gère les <strong>conflits de créneaux</strong>, les
-              <strong>droits d'accès</strong> selon le rôle de l'utilisateur, et offre
-              un suivi complet de chaque réservation : création, modification et annulation.
+              La <strong>structure de la base de données</strong> nous a été fournie.
+              Mon travail a consisté à la <strong>peupler</strong> et à
+              <strong>l'exploiter</strong> depuis l'application PHP : développement
+              des formulaires, des requêtes SQL et de la logique métier.
             </p>
             <p>
-              <!-- Ajoute ici plus de détails sur ton projet spécifique -->
-              Tu peux compléter cette section avec des précisions sur ton sujet exact,
-              les choix techniques que tu as faits, les difficultés rencontrées et les
-              solutions apportées.
+              L'application gère les <strong>rôles utilisateurs</strong> (client /
+              administrateur), la <strong>disponibilité des hébergements</strong> et
+              le suivi complet de chaque réservation : création, modification, annulation.
             </p>
           </div>
         </div>
         <div>
           <div class="detail-block-title">Objectifs atteints</div>
           <ul class="detail-list">
-            <li>Réservation de ressources via une interface simple</li>
-            <li>Gestion des créneaux et détection des conflits</li>
-            <li>Contrôle des droits et rôles utilisateurs</li>
+            <li>Consultation et réservation d'hébergements en ligne</li>
+            <li>Gestion des disponibilités et détection des conflits</li>
+            <li>Contrôle des droits : rôles client et administrateur</li>
             <li>Suivi complet : création, modification, annulation</li>
           </ul>
         </div>
@@ -370,19 +349,20 @@
         <div>
           <div class="detail-block-title">Base de données</div>
           <ul class="detail-list">
-            <li>Conception du MCD et du MLD</li>
-            <li>Tables : utilisateurs, ressources, réservations</li>
-            <li>Requêtes SQL : disponibilité, conflits, historique</li>
+            <li>Structure fournie (tables utilisateurs, hébergements, réservations)</li>
+            <li>Peuplement et exploitation depuis PHP</li>
+            <li>Requêtes SQL : disponibilité, historique, filtres</li>
+            <li>Utilisation de jointures et prepared statements</li>
           </ul>
         </div>
         <div>
-          <div class="detail-block-title">Application</div>
+          <div class="detail-block-title">Application PHP</div>
           <ul class="detail-list">
-            <li>Développement des fonctionnalités métier</li>
-            <li>Gestion des disponibilités et validations</li>
-            <li>Contrôle des erreurs et retours utilisateur</li>
-            <li>Interface utilisateur simple et fonctionnelle</li>
-            <li>Tests et corrections</li>
+            <li>Authentification et gestion des sessions utilisateurs</li>
+            <li>Interface administrateur : ajout, modification, suppression</li>
+            <li>Validation des disponibilités et gestion des erreurs</li>
+            <li>Interface client : consultation et réservation</li>
+            <li>Débogage et corrections avec prepared statements</li>
           </ul>
         </div>
       </div>
@@ -398,11 +378,11 @@
       <div class="competences-grid">
         <div class="competence-item">
           <div class="competence-dot"></div>
-          <div class="competence-label">Modélisation MCD / MLD</div>
+          <div class="competence-label">Exploitation d'un schéma BDD existant</div>
         </div>
         <div class="competence-item">
           <div class="competence-dot"></div>
-          <div class="competence-label">Développement orienté objet</div>
+          <div class="competence-label">Développement PHP / MySQL</div>
         </div>
         <div class="competence-item">
           <div class="competence-dot"></div>
@@ -410,7 +390,7 @@
         </div>
         <div class="competence-item">
           <div class="competence-dot"></div>
-          <div class="competence-label">Conception de base de données SQL</div>
+          <div class="competence-label">Requêtes SQL et jointures</div>
         </div>
         <div class="competence-item">
           <div class="competence-dot"></div>
@@ -440,7 +420,7 @@
         <div class="footer-name">Jeremie Ngowet</div>
         <div class="footer-sub">BTS SIO SLAM · Lycée Parc de Vilgénis</div>
       </div>
-      <div class="footer-copy">© 2025 — Tous droits réservés</div>
+      <div class="footer-copy">© 2026 — Tous droits réservés</div>
       <div class="footer-nav">
         <a href="index.html#about">À propos</a>
         <a href="index.html#projects">Projets</a>
